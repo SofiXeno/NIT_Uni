@@ -17,7 +17,6 @@ html {
 
 body {
     position: relative;
-
     margin: 0px;
     height: 80%;
 }
@@ -33,7 +32,7 @@ header {
 
 }
 
-footer{
+footer {
     height: 5%;
     background-image: url("http://www.gsfdcy.com/data/img1/64/1874786-paper-wallpaper.jpg");
     background-size: cover;
@@ -41,22 +40,31 @@ footer{
     background-attachment: fixed;
     color: #010d0b;
     padding: 0.5%;
+    font-size: 150%;
     text-shadow: 0 0 5px #37fab9;
 }
 
+
 h1 {
-    font-family: "Chalkboard SE";
+    /*margin-top: 2%;*/
+    padding-top: 2%;
+    font-family: "Chalkboard";
     margin: 0px;
     text-align: center;
 }
 
 div#change_username, section#input_zone {
     border: 5px double #00e699;
+
 }
 
 div#change_username {
-    height: 3%;
+    justify-content: center;
+    align-items: center;
+    alignment: center;
+    height: 4%;
     display: block;
+    outline: #2ed19b;
     /*background-color: #BCA9F5;*/
 }
 
@@ -77,6 +85,7 @@ section#input_zone {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+
     /*text-align: center;*/
     /*justify-content: center;*/
     /*vertical-align: center;*/
@@ -91,20 +100,24 @@ section#input_zone {
     transform: translateY(-50%);
 }
 
+
 input#username {
     font-family: "Chalkboard SE";
     height: 90%;
     width: 40%;
+    font-size: 90%;
     background-color: aquamarine;
+    outline: #37fab9;
 }
 
 input#message {
-    display: inline-block;
-    color: aquamarine;
+    /*display: inline-block;*/
+    background-color: aquamarine;
     width: 88%;
     height: 70%;
     font-family: Chalkboard SE;
     font-size: 2vh;
+    outline: #37fab9;
 }
 
 /*button#send_message {*/
@@ -117,26 +130,30 @@ input#message {
 
 button {
     box-shadow: 0px 0px 13px 4px #60dbcb;
-    background:linear-gradient(to bottom, #37fab9 5%, #2ad8de 100%);
-    background-color:#37fab9;
-    border-radius:39px;
-    display:inline-block;
-    cursor:pointer;
-    color:#010d0b;
+    background: linear-gradient(to bottom, #37fab9 5%, #2ad8de 100%);
+    background-color: #37fab9;
+    border-radius: 39px;
+    display: inline-block;
+    cursor: pointer;
+    color: #010d0b;
     font-family: Chalkboard;
     font-size: 80%;
-    padding:9px 8px;
- justify-content: center;
-    text-decoration:none;
-    text-shadow:0px 0px 0px #2ed19b;
+    padding: 9px 8px;
+    justify-content: center;
+    text-decoration: none;
+    text-shadow: 0px 0px 0px #2ed19b;
+    outline: 0;
 }
+
 button:hover {
-    background:linear-gradient(to bottom, #2ad8de 5%, #37fab9 100%);
-    background-color:#2ad8de;
+    background: linear-gradient(to bottom, #2ad8de 5%, #37fab9 100%);
+    background-color: #2ad8de;
 }
+
 button:active {
-    position:relative;
-    top:1px;}
+    position: relative;
+    top: 1px;
+}
 
 p.message {
     margin: 0px;
@@ -152,5 +169,138 @@ p.message {
 }
 
 .message:nth-child(odd) {
-   color: #BCA9F5;
+    color: #BCA9F5;
+}
+
+@media print {
+    .printpage {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    input#message {
+        /*display: inline-block;*/
+        width: 70%;
+        height: 60%;
+        font-size: 2vh;
+    }
+
+
+    button {
+        font-size: 55%;
+        position: center;
+        /*height: 50%;*/
+        /*width: 15%*/
+
+    }
+
+    input#username {
+        height: 90%;
+        width: 50%;
+        font-size: 2vh;
+    }
+
+    footer {
+        height: 7%;
+        font-size: 85%;
+    }
+
+    header {
+        height: 28%;
+    }
+
+    body {
+        height: 73%;
+    }
+}
+
+
+/*for ipad or ipad-pro*/
+@media only screen and (min-width: 420px) and (max-width: 1024px) {
+
+    input#message {
+        /*display: inline-block;*/
+        width: 75%;
+        height: 60%;
+        font-size: 2vh;
+    }
+
+
+    h1 {
+        /*margin-top: 2%;*/
+        padding-top: 2%;
+        margin: 0px;
+
+    }
+
+    button {
+        font-size: 120%;
+        position: center;
+        /*height: 50%;*/
+        /*width: 15%*/
+
+    }
+
+    input#username {
+        height: 100%;
+        width: 45%;
+        font-size: 2vh;
+    }
+
+    footer {
+        height: 9%;
+    }
+
+    header {
+        height: 17%;
+    }
+
+}
+
+
+@media only screen and (min-width: 330px) and (max-width: 450px) {
+
+    input#message {
+        /*display: inline-block;*/
+        width: 80%;
+        height: 60%;
+        font-size: 2vh;
+    }
+
+
+    h1 {
+        /*margin-top: 2%;*/
+        padding-top: 2%;
+        margin: 0px;
+
+    }
+
+    button {
+        font-size: 78%;
+        position: center;
+        /*height: 50%;*/
+        /*width: 15%*/
+
+    }
+
+    input#username {
+        height: 100%;
+        width: 60%;
+        font-size: 2vh;
+    }
+
+    footer {
+        height: 7.8%;
+        font-size: 100%;
+    }
+
+    header {
+        height: 24%;
+    }
+
+    body {
+        height: 75.5%;
+    }
+
 }
