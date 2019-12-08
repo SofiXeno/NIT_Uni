@@ -33,7 +33,7 @@ header {
 }
 
 footer {
-    height: 4%;
+    height: 5%;
     background-image: url("http://www.gsfdcy.com/data/img1/64/1874786-paper-wallpaper.jpg");
     background-size: cover;
     background-position: center;
@@ -43,6 +43,14 @@ footer {
     text-shadow: 0 0 5px #37fab9;
 }
 
+.online{
+    display: inline-block;
+    padding-left: 50%;
+    font-size: 2vw;
+    text-shadow: 0 0 5px #BCA9F5;
+    text-align: right;
+    justify-content: right;
+}
 
 h1 {
     /*margin-top: 2%;*/
@@ -52,17 +60,18 @@ h1 {
     text-align: center;
 }
 
-div#change_username, section#input_zone {
+div#change_user, section#input_zone {
     border: 5px double #00e699;
 
 }
 
-div#change_username {
+div#change_user {
     justify-content: center;
     align-items: center;
     alignment: center;
     height: 4%;
     display: block;
+    text-shadow: 0 0 5px #37fab9;
     outline: #2ed19b;
     /*background-color: #BCA9F5;*/
 }
@@ -100,10 +109,10 @@ section#input_zone {
 }
 
 
-input#username {
+input#username, #password {
     font-family: "Chalkboard SE";
     height: 90%;
-    width: 40%;
+    width: 30%;
     font-size: 90%;
     background-color: aquamarine;
     outline: #37fab9;
@@ -154,13 +163,13 @@ button:active {
     top: 1px;
 }
 
-p.message {
+.message {
     margin: 0px;
     width: 90%;
     height: 5%;
     font-size: 2vh;
     padding: 1%;
-    font-family: Chalkduster;
+    font-family: "Chalkduster";
 }
 
 .message:nth-child(even) {
@@ -169,6 +178,17 @@ p.message {
 
 .message:nth-child(odd) {
     color: #BCA9F5;
+}
+
+.close-window {
+    position: sticky;
+    top: -2%;
+    display: inline;
+    left: 97%;
+    font-size: 200%;
+    font-family: "Comic Sans MS";
+    transform: rotate(45deg);
+    cursor: pointer
 }
 
 @media print {
@@ -194,23 +214,23 @@ p.message {
 
     }
 
-    input#username {
+    input#username, #password {
         height: 90%;
         width: 50%;
         font-size: 2vh;
     }
 
     footer {
-        height: 7%;
+        height: 7.8%;
         font-size: 85%;
     }
 
     header {
-        height: 28%;
+        height: 35%;
     }
 
     body {
-        height: 73%;
+        height: 69%;
     }
 }
 
@@ -227,7 +247,7 @@ p.message {
 
     body {
 
-        height: 80%;
+        height: 75%;
     }
 
     h1 {
@@ -238,25 +258,25 @@ p.message {
     }
 
     button {
-        font-size: 120%;
+        font-size: 110%;
         position: center;
 
 
     }
 
-    input#username {
+    input#username, #password {
         height: 100%;
-        width: 45%;
+        width: 85%;
         font-size: 2vh;
     }
 
     footer {
-        height: 9%;
+        height: 7%;
         font-size: 120%;
     }
 
     header {
-        height: 17%;
+        height: 27%;
     }
 
 }
@@ -287,23 +307,23 @@ p.message {
 
     }
 
-    input#username {
+    input#username, #password{
         height: 100%;
-        width: 60%;
+        width: 71%;
         font-size: 2vh;
     }
 
     footer {
-        height: 7.8%;
+        height: 6%;
         font-size: 100%;
     }
 
     header {
-        height: 24%;
+        height: 36%;
     }
 
     body {
-        height: 75.5%;
+        height: 70%;
     }
 
 }
