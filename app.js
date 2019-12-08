@@ -3,6 +3,8 @@ const app = express()
 const hash = require('password-hash')
 let online = 0;
 
+let xss = require('xss')
+
 //set the template engine ejs
 app.set('view engine', 'ejs')
 
@@ -14,9 +16,9 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
     res.render('index')
 })
-
+const b = 44;
 //Listen on port 3000
-server = app.listen(3000)
+server = app.listen(4000)
 
 
 
@@ -45,6 +47,9 @@ setInterval(() => {
     })
 }, 50000)
 
+function removeXss(string){
+    return xss(string)
+}
 
 //listen on every connection
 io.on('connection', (socket) => {
@@ -59,6 +64,8 @@ io.on('connection', (socket) => {
 
     //listen on change_username.
     socket.on('change_user', (data) => {
+        data.username = removeXss(data.username)
+        data.password= removeXss(data.password)
         if(data.password === undefined || data.username === undefined || data.password.length ===0 || data.username.length === 0 )
             return;
         verifyUser(data, socket)
@@ -66,6 +73,8 @@ io.on('connection', (socket) => {
 
     //listen on new_message
     socket.on('new_message', (data) => {
+        data.message = removeXss(data.message)
+
         //broadcast the new message
         data.username = socket.username
         addMessageToDB(data, socket)
@@ -138,6 +147,7 @@ const a = 0;
     }
 
 function addMessageToDB(data) {
+        console.log(data)
     mysql_connection.query("INSERT INTO ChatDB (username, time, message) VALUES (?, ?, ?)", [data.username, data.time, data.message],
         (err, res) => {
         console.log(res)

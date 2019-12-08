@@ -1,6 +1,6 @@
-$(function(){
+$(function () {
     //make connection
-    var socket = io.connect('http://localhost:3000')
+    var socket = io.connect('http://localhost:4000')
 
     //buttons and inputs
     var message = $("#message")
@@ -20,8 +20,8 @@ $(function(){
     }
 
     //Emit message
-    send_message.click(function(){
-        socket.emit('new_message', {message : message.val(), time: time()} )
+    send_message.click(function () {
+        socket.emit('new_message', {message: message.val(), time: time()})
     })
 
     //Listen on new_message
@@ -30,12 +30,12 @@ $(function(){
         message.val('');
         console.log(data)
         console.log(data.username)
-        chatroom.append("<div class='message'>" + data.username +  " ( "+ data.time + " )"+" ~ " + data.message + "</div>")
+        chatroom.append("<div class='message'>" + "<div class='close-window'>" + "+" + "</div>" + data.username + " ( " + data.time + " )" + " ~ " + data.message + "</div>")
     })
 
     //Emit a username
-    send_password.click(function(){
-        socket.emit('change_user', {username : username.val(), password : password.val()})
+    send_password.click(function () {
+        socket.emit('change_user', {username: username.val(), password: password.val()})
         username.val("");
         password.val("");
     })
@@ -51,6 +51,6 @@ $(function(){
     })
 
     socket.on('online_changed', (data) => {
-           $("#online_users").html("Online users: "+ data.online);
+        $("#online_users").html("Online users: " + data.online);
     })
 });
