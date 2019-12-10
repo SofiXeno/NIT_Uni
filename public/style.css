@@ -375,12 +375,12 @@ button:active {
     }
 
     footer {
-        height: 7%;
+        height: 10%;
         font-size: 50%;
     }
 
     header {
-        height: 35%;
+        height: 45%;
     }
 
     body {
@@ -393,5 +393,11 @@ button:active {
 
     .vertical-align2 {
         top: 30%;
+    }
+
+
+    section#chat_body {
+
+        height: 75%;
     }
 }
