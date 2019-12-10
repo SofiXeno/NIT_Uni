@@ -19,6 +19,7 @@ body {
     position: relative;
     margin: 0px;
     height: 77%;
+
 }
 
 header {
@@ -43,7 +44,7 @@ footer {
     text-shadow: 0 0 5px #37fab9;
 }
 
-.online{
+.online {
     display: inline-block;
     padding-left: 50%;
     font-size: 2vw;
@@ -83,7 +84,7 @@ section#chat_body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    overflow: auto;
+    overflow-x: hidden;
 }
 
 section#input_zone {
@@ -108,6 +109,14 @@ section#input_zone {
     transform: translateY(-50%);
 }
 
+.vertical-align2 {
+    position: relative;
+    top: 20%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
 
 input#username, #password {
     font-family: "Chalkboard SE";
@@ -116,14 +125,13 @@ input#username, #password {
     font-size: 90%;
     background-color: aquamarine;
     outline: #37fab9;
-    border: 0px;
 }
 
-input#message {
+textarea#message {
     /*display: inline-block;*/
     background-color: aquamarine;
     width: 88%;
-    height: 70%;
+    height: 89%;
     font-family: Chalkboard SE;
     font-size: 2vh;
     outline: #37fab9;
@@ -167,12 +175,17 @@ button:active {
 }
 
 .message {
-    margin: 0px;
-    width: 90%;
-    height: 5%;
-    font-size: 2vh;
-    padding: 1%;
+    position:relative;
+    display: block;
+    width: 97%;
+    height: fit-content ;
+    padding: 1% 2% 1% 1%;
+    /*border: 1px ridge #00e699;*/
+    /*box-shadow: 0 0 5px #BCA9F5;*/
+    /*padding: 1%;*/
     font-family: "Chalkduster";
+    word-break: break-word;
+
 }
 
 .message:nth-child(even) {
@@ -184,13 +197,14 @@ button:active {
 }
 
 .close-window {
-    position: sticky;
-    display: inline-block;
-    left: 97%;
-    font-size: 200%;
-    font-family: "Comic Sans MS";
+    position: absolute;
+    display: none;
+    top:1%;
+    right:1%;
+    color: red;
+    /*font-family: "Comic Sans MS";*/
     transform: rotate(45deg);
-    cursor: pointer
+    cursor: pointer;
 }
 
 @media print {
@@ -200,19 +214,27 @@ button:active {
 }
 
 @media only screen and (max-width: 320px) {
-    input#message {
+    textarea#message  {
         /*display: inline-block;*/
         width: 70%;
-        height: 60%;
         font-size: 2vh;
     }
 
+    .online {
+        display: block;
+        padding-left: 0%;
+        padding-right: 10%;
+        padding-top: -5%;
+        font-size: 14px;
+        text-shadow: 0 0 5px #BCA9F5;
+        text-align: right;
+        justify-content: right;
+
+    }
 
     button {
-        font-size: 55%;
+        font-size: 12px;
         position: center;
-        /*height: 50%;*/
-        /*width: 15%*/
 
     }
 
@@ -224,7 +246,8 @@ button:active {
 
     footer {
         height: 7.8%;
-        font-size: 85%;
+        font-size: 55%;
+        padding-bottom: 1%;
     }
 
     header {
@@ -234,16 +257,28 @@ button:active {
     body {
         height: 69%;
     }
+
+    .message {
+        font-size: 15px;
+    }
+
+    .vertical-align {
+        position: relative;
+        top: 30%;
+        -webkit-transform: translateY(-30%);
+        -ms-transform: translateY(-30%);
+        transform: translateY(-30%);
+    }
 }
 
 
 /*for ipad or ipad-pro*/
 @media only screen and (min-width: 420px) and (max-width: 1024px) {
 
-    input#message {
+    textarea#message {
         /*display: inline-block;*/
         width: 75%;
-        height: 60%;
+        height: 80%;
         font-size: 2vh;
     }
 
@@ -260,7 +295,7 @@ button:active {
     }
 
     button {
-        font-size: 110%;
+        font-size: 20px;
         position: center;
 
 
@@ -274,11 +309,27 @@ button:active {
 
     footer {
         height: 7%;
-        font-size: 120%;
+        font-size: 90%;
+    }
+
+    .online {
+        display: block;
+        padding-left: 0%;
+        padding-right: 10%;
+        padding-top: -5%;
+        font-size: 20px;
+        text-shadow: 0 0 5px #BCA9F5;
+        text-align: right;
+        justify-content: right;
+
     }
 
     header {
         height: 27%;
+    }
+
+    .vertical-align2 {
+        top: 20%;
     }
 
 }
@@ -286,10 +337,10 @@ button:active {
 
 @media only screen and (min-width: 330px) and (max-width: 450px) {
 
-    input#message {
+    textarea#message  {
         /*display: inline-block;*/
         width: 80%;
-        height: 60%;
+        height: 70%;
         font-size: 2vh;
     }
 
@@ -309,7 +360,15 @@ button:active {
 
     }
 
-    input#username, #password{
+    .vertical-align {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    input#username, #password {
         height: 100%;
         width: 71%;
         font-size: 2vh;
@@ -317,7 +376,7 @@ button:active {
 
     footer {
         height: 6%;
-        font-size: 100%;
+        font-size: 50%;
     }
 
     header {
@@ -328,4 +387,11 @@ button:active {
         height: 70%;
     }
 
+    .online {
+        font-size: 16px;
+    }
+
+    .vertical-align2 {
+        top: 30%;
+    }
 }

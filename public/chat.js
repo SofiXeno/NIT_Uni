@@ -11,6 +11,8 @@ $(function () {
     var chatroom = $("#chat_body")
     var feedback = $("#feedback")
 
+
+
     function time() {
         let time = new Date()
         let hrs = time.getHours()
@@ -22,35 +24,45 @@ $(function () {
     //Emit message
     send_message.click(function () {
         socket.emit('new_message', {message: message.val(), time: time()})
+        message.val('');
     })
 
     //Listen on new_message
     socket.on("new_message", (data) => {
-        feedback.html('');
-        message.val('');
+        feedback.html('')
         console.log(data)
         console.log(data.username)
-        chatroom.append("<div class='message'>" + "<div class='close-window'>" + "+" + "</div>" + data.username + " ( " + data.time + " )" + " ~ " + data.message + "</div>")
+        chatroom.append("<div class='message' id='message" + data.id + "'>" + data.username + " ( " + data.time + " )" + " ~ " + "<br>" + data.message + "<div class= 'close-window' id = 'delmes" + data.id + "' >+</div></div>")
+        let del = $('#delmes' + data.id);
+        del.click(function () {
+            console.log('clicked')
+            socket.emit('delete', data.id)
+        })
+        data.role ? del.css('display', 'inline-block') : del.css('display', 'none')
     })
 
     //Emit a username
     send_password.click(function () {
         socket.emit('change_user', {username: username.val(), password: password.val()})
-        username.val("");
-        password.val("");
+        username.val("")
+        password.val("")
     })
 
-    //Emit typing
-    message.bind("keypress", () => {
-        socket.emit('typing')
-    })
-
-    //Listen on typing
-    socket.on('typing', (data) => {
-        feedback.html("<p><i>" + data.username + " is typing a message..." + "</i></p>")
-    })
 
     socket.on('online_changed', (data) => {
-        $("#online_users").html("Online users: " + data.online);
+        $('#online_users').html("Online users: " + data.online);
     })
+
+    socket.on('message_deleted', (id) => {
+        $('#message' + id).remove()
+    })
+
+    socket.on('admin', (data) => {
+        (data) ? $('.close-window').css("display", "inline-block") : $('.close-window').css("display", "none")
+
+        // if (data) $('.close-window').css("display" ,"inline-block")
+        // else $('.close-window').css("display" ,"none")
+    })
+
+
 });
