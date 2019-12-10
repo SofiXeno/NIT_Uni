@@ -23,7 +23,7 @@ body {
 }
 
 header {
-    height: 24%;
+    height: 23%;
     position: relative;
     background-image: url("http://www.gsfdcy.com/data/img1/64/1874786-paper-wallpaper.jpg");
     background-size: cover;
@@ -34,7 +34,7 @@ header {
 }
 
 footer {
-    height: 5%;
+    height: 6%;
     background-image: url("http://www.gsfdcy.com/data/img1/64/1874786-paper-wallpaper.jpg");
     background-size: cover;
     background-position: center;
