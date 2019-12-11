@@ -8,17 +8,14 @@ let xss = require('xss');
 //set the template engine ejs
 app.set('view engine', 'ejs');
 
-//middlewares
 app.use(express.static('public'));
 
-
-//routes
 app.get('/', (req, res) => {
     res.render('index')
 });
-const b = 44;
-//Listen on port 3000
-server = app.listen(process.env.PORT || 8000);
+// const b = 44;
+
+server = app.listen(4000);
 
 
 //socket.io instantiation
@@ -58,7 +55,6 @@ io.on('connection', (socket) => {
 
     console.log('New user connected');
 
-    //default username
     socket.username = "Anonymous";
 
     //listen on change_username.
@@ -96,9 +92,7 @@ io.on('connection', (socket) => {
 
     });
 
-
     showMessages(socket)
-
 
 });
 

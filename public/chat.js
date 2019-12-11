@@ -1,6 +1,6 @@
 $(function () {
     //make connection
-    var socket = io.connect();
+    var socket = io.connect('http://localhost:4000');
 
     //buttons and inputs
     var message = $("#message");
@@ -10,8 +10,6 @@ $(function () {
     var send_password = $("#send_password");
     var chatroom = $("#chat_body");
     var feedback = $("#feedback");
-
-
 
     function time() {
         let time = new Date();
